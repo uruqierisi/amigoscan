@@ -35,8 +35,8 @@ sudo apt install python3 python3-pip git -y
 
 
 #  Clone repo (recommended for full project)
-git clone https://github.com/uruqierisi/AMIGOS-Pentest-Scanner-Ethical-Reconnaissance-Framework.git
-cd pentest-scanner
+git clone https://github.com/uruqierisi/amigoscan.git
+cd amigoscan
 pip install -r requirements.txt
 ```
 
@@ -53,8 +53,8 @@ pip install -r requirements.txt
 Alternatively:
 
 ```bash
-git clone https://github.com/uruqierisi/AMIGOS-Pentest-Scanner-Ethical-Reconnaissance-Framework.git
-cd pentest-scanner
+git clone https://github.com/uruqierisi/amigoscan.git
+cd amigoscan
 pip install -r requirements.txt
 ```
 
@@ -65,21 +65,21 @@ pip install -r requirements.txt
 **✅ Quick Passive Check**
 
 ```bash
-./pentest_scanner.py example.com --light
+./amigos.py example.com --light
 # 🔄 Medium-Level Discovery + Payload Testing
 ```
 
 **Medium scan with JSON output**
 
 ```bash
-./pentest_scanner.py https://signup.target.com --medium --output results/scans/target_signup.json
+./amigos.py  https://signup.target.com --medium --output results/scans/target_signup.json
 # ⚡ Deep Dive Into Forms / XSS Paths
 ```
 
 **Deep scan (single URL)**
 
 ```bash
-./pentest_scanner.py --deep "http://testphp.vulnweb.com/artists.php?artist=1"
+./amigos.py  --deep "http://testphp.vulnweb.com/artists.php?artist=1"
 # 📂 List-Based Batch Scan
 ```
 
@@ -96,7 +96,7 @@ http://shop.example.org/test?search=admin
 Then run:
 
 ```bash
-./pentest_scanner.py --file domains.txt --medium --output all-domains-report.json
+./amigos.py  --file domains.txt --medium --output all-domains-report.json
 # 🧪 Sample Output Summary
 ```
 
