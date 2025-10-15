@@ -5,8 +5,11 @@ A lightweight, modular OWASP-focused scanner supporting light/medium/deep scan i
 🔍 Scan Levels:
 
 🟢 --light: Basic header checks, cookie parsing, CORS detection
+
 🟡 --medium: Adds .env, .git, XSS payload injection checks
+
 🔴 --deep: Full XSS/SQLi form tampering simulations, advanced leak tracing
+
 🧾 Output Highlights:
 
 Human-readable CLI summaries highlighting actionable findings
@@ -16,7 +19,9 @@ Minimal UI noise – optimized for field usage
 
 Asynchronous design (fast concurrent scanning)
 Low runtime dependency footprint (Python only)
+
 🧰 Installation Guide
+
 On Debian/Kali Linux:
 
 sudo apt update
