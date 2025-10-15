@@ -372,31 +372,35 @@ def parse_input_file(filepath):
 
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="AMIGOS PENTEST SCANNER v1 - Light, Medium, Deep Modes for Ethical Web Scanning",
+        epilog="Use Only With Explicit Authorization. Unauthorized usage may carry legal consequences."
+    )
     parser.add_argument("urls", nargs='*', help="URLs to scan.")
     parser.add_argument("--file", help="Path to txt file with list of domains.")
-    parser.add_argument("--concurrency", type=int, default=8)
-    parser.add_argument("--timeout", type=int, default=20)
-    parser.add_argument("--output", help="File to dump full detailed report.")
+    parser.add_argument("--concurrency", type=int, default=8, help="Number of concurrent requests (default: 8)")
+    parser.add_argument("--timeout", type=int, default=20, help="Request timeout in seconds (default: 20)")
+    parser.add_argument("--output", help="File to dump full detailed report in JSON format.")
     
     # Depth control switches
     group = parser.add_mutually_exclusive_group(required=False)
-    group.add_argument('--light', action='store_true', help='Only passive checks, skip XSS or file discovery.')
-    group.add_argument('--medium', action='store_true', help='Standard scan plus XSS and common files.')
-    group.add_argument('--deep', action='store_true', help='Intensive probing including SQLi attempts.')
-    group.add_argument('--attack-mode', dest='medium', action='store_true', help='Alias for --medium.')
+    group.add_argument('--light', action='store_true', help='Passive checks only: headers, cookies, CORS')
+    group.add_argument('--medium', action='store_true', help='Standard scan plus XSS and common files')
+    group.add_argument('--deep', action='store_true', help='Intensive probing including SQLi attempts')
+    group.add_argument('--attack-mode', action='store_true', help='Attack active scan(aggressive scanning)')
 
     args = parser.parse_args()
 
     # Resolve level
-    level_order = {"light": 'light', "medium": 'medium', "deep": 'deep'}
     level = 'medium'
     if args.light:
         level = 'light'
     elif args.deep:
         level = 'deep'
+    elif args.attack_mode:
+        level = 'medium'  # attack mode is medium intensity with aggressive tests
 
-    attack = level != 'light'
+    attack = level != 'light' or args.attack_mode
 
     urls = []
     if args.file:
@@ -428,5 +432,4 @@ def main():
 
 
 if __name__ == "__main__":
-
     main()
