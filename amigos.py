@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """
-PENTEST SCANNER v1 – Light, Medium, Deep Modes for Ethical Web Scanning.
+AMIGOS PENTEST SCANNER v1 – Light, Medium, Deep Modes for Ethical Web Scanning.
 
-Author: HackerAI
-License: MIT
+Author: kodeksi,snowwww
 Use Only With Explicit Authorization.
 """
 
@@ -429,4 +428,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
