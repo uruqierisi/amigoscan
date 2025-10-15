@@ -34,7 +34,7 @@ sudo apt update
 sudo apt install python3 python3-pip git -y
 
 
-# Option B: Clone repo (recommended for full project)
+#  Clone repo (recommended for full project)
 git clone https://github.com/uruqierisi/AMIGOS-Pentest-Scanner-Ethical-Reconnaissance-Framework.git
 cd pentest-scanner
 pip install -r requirements.txt
