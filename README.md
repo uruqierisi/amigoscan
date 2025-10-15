@@ -47,7 +47,7 @@ pip install -r requirements.txt
 ## 🚀 Test it works
 
 ```bash
-./pentest_scanner.py --help
+./amigos.py --help
 ```
 
 Alternatively:
