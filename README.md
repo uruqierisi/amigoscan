@@ -115,4 +115,14 @@ Example JSON keys (actual structure may vary):
   "raw": { "requests": [ /* request/response objects */ ] }
 }
 ```
+Troubleshooting
+shebang / CRLF error: if you see env: 'python3\r': No such file or directory convert line endings:
+```bash
+# use dos2unix if available
+dos2unix amigos.py
+
+# or with sed
+sed -i 's/\r$//' amigos.py
+```
+
 Designed For Security Research & Educational Purposes. Unauthorized usage against third-party infrastructure may carry legal consequences.
