@@ -59,6 +59,9 @@ chmod +x amigos.py
 # Deep scan (single URL with params)
 ./amigos.py --deep "http://testphp.vulnweb.com/artists.php?artist=1"
 
+# Maximum attack mode
+./amigos.py http://target.com --attack-mode --output max_results.json
+
 # Batch scan (file input)
 # Create domains.txt with one URL per line, then:
 
@@ -103,10 +106,11 @@ Example JSON keys (actual structure may vary):
   "checked_at": "2025-01-01T12:00:00Z",
   "findings": [
     {
-      "type": "xss_violations_found",
-      "description": "Parameter-based XSS indicators identified",
-      "matches": [ /* ... */ ]
-    }
+  "type": "lfi_indicators_found",
+  "description": "Local File Inclusion indicators identified",
+  "matches": [ /* ... */ ]
+   },
+
   ],
   "raw": { "requests": [ /* request/response objects */ ] }
 }
